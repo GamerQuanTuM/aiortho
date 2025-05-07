@@ -1,7 +1,26 @@
 import type { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
-  /* config options here */
+const config:NextConfig = {
+  output: 'standalone',
+  outputFileTracingExcludes: {
+    '*': ['node_modules/**/*']
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "daggle.io",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
+  },
 };
 
-export default nextConfig;
+export default config;
